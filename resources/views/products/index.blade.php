@@ -1,8 +1,5 @@
 @extends('layouts.public');
 @section('content')
-@if (!empty($success))
-    {!! $success !!}    
-@endif
 <main class="py-5">
     <div class="container">
       <div class="row">
@@ -12,7 +9,7 @@
                 <div class="d-flex align-items-center">
                   <h2 class="mb-0">All Products</h2>
                   <div class="ml-auto">
-                    <a href="{{route('products.create')}}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Make Movement</a>
+                    <a href="{{route('products.create')}}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Create new Product</a>
                   </div>
                 </div>
               </div>
@@ -44,9 +41,14 @@
                         </div>
                       </div>
                     </div>
+                   
                   </div>
                 </div>
               </div>
+              @if($msg=session('message'))
+              <div class="alert alert-success">{{$msg}}
+              </div>
+              @endif
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
@@ -68,8 +70,12 @@
                     <td>{{$product->category->name}}</td>
                     <td width="150">
                       <a href="{{route('products.show',$product->id)}}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                      <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                      <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
+                      <a href="{{route('products.edit',$product->id)}}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
+                      <form action="{{route('products.destroy',$product->id)}}" method="post" onsubmit="confirm('Are you sure?')" style="display:inline">
+                      @csrf
+                      @method('delete')
+                      <button class="btn btn-sm btn-circle btn-outline-danger" title="Delete"><i class="fa fa-times"></i></button>
+                      </form>
                     </td>
                   </tr>                        
                   @endforeach

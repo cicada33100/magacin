@@ -9,7 +9,11 @@
               <strong>Add New PRODUCT</strong>
             </div>           
             <div class="card-body">
-              @include('products._form')
+              <form action="{{route('products.store')}}"method="post">
+                {{-- <input type="hidden" name="_token" value="{{csrf_token()}}"> --}}
+                @csrf
+                @include('products._form')
+              </form>
             </div>
           </div>
         </div>

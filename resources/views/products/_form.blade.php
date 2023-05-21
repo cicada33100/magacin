@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-md-12">
       <div class="form-group row">
-        <label for="first_name" class="col-md-3 col-form-label">Name</label>
+        <label for="name" class="col-md-3 col-form-label">Name</label>
         <div class="col-md-9">
-          <input type="text" name="first_name" id="first_name" class="form-control is-invalid">
+          <input type="text" name="name" id="name" value="{{old('name',$product->name)}}" class="form-control is-invalid">
           <div class="invalid-feedback">
             Please enter name of your product
           </div>
@@ -13,27 +13,27 @@
       <div class="form-group row">
         <label for="description" class="col-md-3 col-form-label">Description</label>
         <div class="col-md-9">
-          <input type="text" name="description" id="description" class="form-control">
+          <input type="text" name="description" id="description" value="{{old('description',$product->description)}}" class="form-control">
         </div>
       </div>
 
       <div class="form-group row">
         <label for="number" class="col-md-3 col-form-label">Quantity</label>
         <div class="col-md-9">
-          <input type="number" name="quantity" id="quantity" class="form-control">
+          <input type="number" name="quantity" id="quantity" value="{{old('quantity',$product->quantity)}}" class="form-control">
         </div>
       </div>
 
       <div class="form-group row">
         <label for="number" class="col-md-3 col-form-label">Price per unit</label>
         <div class="col-md-9">
-          <input type="number" name="price" id="price" class="form-control">
+          <input type="number" name="price" id="price" value="{{old('price',$product->price)}}" class="form-control">
         </div>
       </div>
       <div class="form-group row">
-        <label for="company_id" class="col-md-3 col-form-label">Category</label>
+        <label for="categories_id" class="col-md-3 col-form-label">Category</label>
         <div class="col-md-9">
-            <select class="form-control" id="category_id" name="category_id">
+            <select class="form-control" id="categories_id" value="{{old('categories_id',$product->categories_id)}}" name="categories_id">
                 <option value="" selected>Select category</option>
                @foreach ($categories as $category)
                <option value="{{$category->id}}">{{$category->name}}</option> 
