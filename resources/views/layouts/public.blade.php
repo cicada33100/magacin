@@ -13,15 +13,21 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/custom.css')}}" rel="stylesheet">
- 
+
 </head>
-   
+
 <body>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand text-uppercase" href="index.html">
+            <a class="navbar-brand text-uppercase" href="{{route('welcome')}}">
                 <strong>Ship&Keep</strong>
+            </a>
+            <a class="nav-link text-uppercase" href="{{route('products.index')}}">
+                <strong>Products</strong>
+            </a>
+            <a class="nav-link text-uppercase" href="{{route('categories.index')}}">
+                <strong>Categories</strong>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler"
                 aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +44,7 @@
         </div>
     </nav>
     @yield('content')
-    
+
     <footer class="py-5 footer">
         <div class="container">
             <div class="row">

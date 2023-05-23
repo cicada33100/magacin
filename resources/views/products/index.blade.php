@@ -1,4 +1,4 @@
-@extends('layouts.public');
+@extends('layouts.public')
 @section('content')
 <main class="py-5">
     <div class="container">
@@ -19,11 +19,11 @@
                 <div class="col-md-6">
                   <div class="row">
                     <div class="col">
-                      <form method="GET">  
+                      <form method="GET">
                         <select class="custom-select" name="category_id" onchange="this.form.submit()">
                         <option value="" selected>All categories</option>
                        @foreach ($categories as $category)
-                       <option value="{{$category->id}}" @if($category->id==request()->query("category_id")) selected @endif>{{$category->name}}</option> 
+                       <option value="{{$category->id}}" @if($category->id==request()->query("category_id")) selected @endif>{{$category->name}}</option>
                        @endforeach
                       </select>
                       </form>
@@ -41,7 +41,7 @@
                         </div>
                       </div>
                     </div>
-                   
+
                   </div>
                 </div>
               </div>
@@ -77,10 +77,10 @@
                       <button class="btn btn-sm btn-circle btn-outline-danger" title="Delete"><i class="fa fa-times"></i></button>
                       </form>
                     </td>
-                  </tr>                        
+                  </tr>
                   @endforeach
                 </tbody>
-              </table> 
+              </table>
 
               <nav class="mt-4">
                   <ul class="pagination justify-content-center">
