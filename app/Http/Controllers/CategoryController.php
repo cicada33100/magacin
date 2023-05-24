@@ -49,7 +49,7 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+
     }
 
     /**
@@ -65,6 +65,8 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category=Categories::findOrFail($id);
+        $category->delete();
+        return redirect()->route('categories.index')->with('message','Category succefuly deleted.');
     }
 }

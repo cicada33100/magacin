@@ -51,6 +51,12 @@
                                         <th scope="row">{{ $category->id }}</th>
                                         <td>{{ $category->name }}</td>
                                         <td>{{ $category->description }}</td>
+                                        <td><form action="{{route('categories.destroy',$category->id)}}" method="post" onsubmit="confirm('Are you sure?')" style="display:inline">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="btn btn-sm btn-circle btn-outline-danger" title="Delete"><i class="fa fa-times"></i></button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>

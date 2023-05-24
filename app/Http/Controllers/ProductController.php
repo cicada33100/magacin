@@ -47,8 +47,8 @@ class ProductController extends Controller
         //     'price'=>['numeric']
         // ]);
         $product=Product::create($request->all());
-        return redirect()->route('products.index')->with('message', 'Product created successfully'); 
-       
+        return redirect()->route('products.index')->with('message', 'Product created successfully');
+
         // $product = new Product();
         // $product->product_name = $request->input('name');
         // $product->product_description = $request->input('description');
@@ -56,9 +56,9 @@ class ProductController extends Controller
         // $product->product_price = $request->input('price');
         // $product->save();
 
-        // return redirect()->route('products.index')->with('success', 'Product created successfully'); 
-       
-        
+        // return redirect()->route('products.index')->with('success', 'Product created successfully');
+
+
     }
 
     /**
@@ -79,7 +79,7 @@ class ProductController extends Controller
         $product=Product::findOrFail($id);
         $categories=Categories::all();
         return view('products.editproduct',compact('product','categories'));
-    
+
      }
 
     /**
@@ -87,11 +87,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        
+
         $product=Product::findOrFail($id);
         $product->update($request->all());
-        return redirect()->route('products.index')->with('message', 'Product updated successfully'); 
-       
+        return redirect()->route('products.index')->with('message', 'Product updated successfully');
+
     }
 
     /**
@@ -101,7 +101,7 @@ class ProductController extends Controller
     {
         $product=Product::findOrFail($id);
         $product->delete();
-        return redirect()->route('products.index')->with('message', 'Product dleted successfully');
+        return redirect()->route('products.index')->with('message', 'Product deleted successfully');
     }
-   
+
 }

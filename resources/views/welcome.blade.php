@@ -13,7 +13,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/custom.css')}}" rel="stylesheet">
- 
+
 </head>
 
 <body>
@@ -31,8 +31,8 @@
             <!-- /.navbar-header -->
             <div class="collapse navbar-collapse" id="navbar-toggler">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item mr-2"><a href="#" class="btn btn-outline-secondary">Login</a></li>
-                    <li class="nav-item"><a href="#" class="btn btn-outline-primary">Register</a></li>
+                    <li class="nav-item mr-2"><a href="{{route('login')}}" class="btn btn-outline-secondary">Login</a></li>
+                    <li class="nav-item"><a href="{{route('register')}}" class="btn btn-outline-primary">Register</a></li>
                 </ul>
             </div>
         </div>
