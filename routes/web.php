@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SupllierController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\WelcomeController;
@@ -29,6 +30,9 @@ Route::get('categories/create',[CategoryController::class,'create'])->name('cate
 Route::post('categories',[CategoryController::class,'store'])->name('categories.store');
 Route::delete('categories/{id}',[CategoryController::class,'destroy'])->name('categories.destroy');
 
-// Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
-// Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
-// Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::get('suppliers',[SupllierController::class,'index'])->name('suppliers.index');
+Route::get('suppliers/details/{id}',[SupllierController::class,'show'])->name('suppliers.show');
+Route::get('suppliers/{id}/edit',[SupllierController::class,'edit'])->name('suppliers.edit');
+Route::get('suppliers/create',[SupllierController::class,'create'])->name('suppliers.create');
+Route::post('suppliers',[SupllierController::class,'store'])->name('suppliers.store');
+Route::delete('suppliers/{id}',[SupllierController::class,'destroy'])->name('suppliers.destroy');

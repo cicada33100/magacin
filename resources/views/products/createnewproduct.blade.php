@@ -7,9 +7,9 @@
           <div class="card">
             <div class="card-header card-title">
               <strong>Add New PRODUCT</strong>
-            </div>           
+            </div>
             <div class="card-body">
-              <form action="{{route('products.store')}}"method="post">
+              <form action="{{route('products.store')}}" method="post">
                 {{-- <input type="hidden" name="_token" value="{{csrf_token()}}"> --}}
                 @csrf
                 @include('products._form')
