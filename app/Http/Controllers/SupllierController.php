@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Supllier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class SupllierController extends Controller
 {
@@ -21,8 +22,8 @@ class SupllierController extends Controller
      */
     public function create()
     {
-        $suppliers=Supllier::all();
-        return view('suppliers.create',compact('suppliers'));
+        $supplier=new Supllier();
+        return view('suppliers.create',compact('supplier'));
     }
 
     /**
@@ -31,7 +32,7 @@ class SupllierController extends Controller
     public function store(Request $request)
     {
         $supplier=Supllier::create($request->all());
-//        return redirect()->route('suppliers.indexx')->with('message','Succesfuly created new Supplier');
+        return redirect()->route('suppliers.index')->with('message','Succesfuly created new Supplier');
     }
 
     /**
@@ -61,7 +62,7 @@ class SupllierController extends Controller
     {
         $supplier=Supllier::findOrFail($id);
         $supplier=update($request->all());
-        return redirect()->route('suppliers.indexx')->with('message','Supplier updated succefully');
+        return redirect()->route('suppliers.index')->with('message','Supplier updated succefully');
     }
 
     /**
@@ -70,8 +71,8 @@ class SupllierController extends Controller
     public function destroy(string $id)
     {
         $supplier=Supllier::findOrFail($id);
-        $supplier=delete();
-        return redirect()->route('suppliers.indexx')->with('message','Supplier deleted succefully');
+        $supplier->delete();
+        return redirect()->route('suppliers.index')->with('message','Supplier deleted succefully');
 
     }
 }

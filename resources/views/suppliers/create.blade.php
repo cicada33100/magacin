@@ -1,4 +1,4 @@
-@include('layouts.public')
+@extends('layouts.public')
 @section('content')
     <main class="py-5">
         <div class="container">
@@ -9,7 +9,7 @@
                             <strong>Add new supplier</strong>
                         </div>
                         <div class="card-body">
-                            <form action="{{route('suppliers.store')}}"method="post">
+                            <form action="{{route('suppliers.store')}}" method="post">
                                 {{-- <input type="hidden" name="_token" value="{{csrf_token()}}"> --}}
                                 @csrf
                                 <div class="row">
@@ -19,7 +19,7 @@
                                             <div class="col-md-9">
                                                 <input type="text" name="name" id="name" value="{{old('name',$supplier->name)}}" class="form-control is-invalid">
                                                 <div class="invalid-feedback">
-                                                    Please enter name of supplier
+                                                    Please enter the name of the supplier
                                                 </div>
                                             </div>
                                         </div>
@@ -28,7 +28,7 @@
                                             <div class="col-md-9">
                                                 <input type="text" name="email" id="email" value="{{old('email',$supplier->email)}}" class="form-control is-invalid">
                                                 <div class="invalid-feedback">
-                                                    Please enter email of supplier
+                                                    Please enter the email of the supplier
                                                 </div>
                                             </div>
                                         </div>
@@ -38,7 +38,7 @@
                                             <div class="col-md-9">
                                                 <input type="text" name="address" id="address" value="{{old('address',$supplier->address)}}" class="form-control is-invalid">
                                                 <div class="invalid-feedback">
-                                                    Please enter address of supplier
+                                                    Please enter the address of the supplier
                                                 </div>
                                             </div>
                                         </div>
@@ -48,7 +48,7 @@
                                             <div class="col-md-9">
                                                 <input type="text" name="phone" id="phone" value="{{old('phone',$supplier->phone)}}" class="form-control is-invalid">
                                                 <div class="invalid-feedback">
-                                                    Please enter phone of supplier
+                                                    Please enter the phone of the supplier
                                                 </div>
                                             </div>
                                         </div>
@@ -58,7 +58,7 @@
                                             <div class="col-md-9">
                                                 <input type="text" name="contact_person" id="contact_person" value="{{old('contact_person',$supplier->contact_person)}}" class="form-control is-invalid">
                                                 <div class="invalid-feedback">
-                                                    Please enter name of Contact person.
+                                                    Please enter the name of the contact person
                                                 </div>
                                             </div>
                                         </div>
@@ -66,16 +66,12 @@
                                         <div class="form-group row mb-0">
                                             <div class="col-md-9 offset-md-3">
                                                 <button type="submit" class="btn btn-primary">Save</button>
-                                                <a href="{{route('supplier.index')}}" class="btn btn-outline-secondary">Cancel</a>
+                                                <a href="{{route('suppliers.index')}}" class="btn btn-outline-secondary">Cancel</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </form> <!-- Closing form tag -->
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+
 @endsection
