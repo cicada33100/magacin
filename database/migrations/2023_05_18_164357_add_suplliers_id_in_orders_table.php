@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-        
-            $table->foreignId('products_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('suplliers_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+
+           // $table->foreignId('products_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('suplliers_id')->references('id')->on('suplliers')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
@@ -25,7 +25,7 @@ return new class extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             //dodati da se dropuju spoljni kljucevi da bi se ispostovalo za migratcije rollback incase samo fresh i tjt
-            
+
         });
     }
 };
